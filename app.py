@@ -41,6 +41,69 @@ def save_data(s_id, data):
     with open(file_path, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=2, ensure_ascii=False)
 
+def render_submission_files(files, work_link):
+    """Display submission files visually (images, PDFs, links)."""
+    if isinstance(files, str):
+        files = [files]
+    elif not isinstance(files, list):
+        files = []
+        
+    clean_files = [f.strip() for f in files if isinstance(f, str) and f.strip()]
+    
+    img_extensions = ('.jpg', '.jpeg', '.png', '.webp', '.gif')
+    pdf_extensions = ('.pdf',)
+    
+    images_to_show = []
+    pdfs_to_show = []
+    other_files = []
+
+    for f in clean_files:
+        lower_f = f.lower().split('?')[0]
+        if lower_f.endswith(img_extensions):
+            images_to_show.append(f)
+        elif lower_f.endswith(pdf_extensions):
+            pdfs_to_show.append(f)
+        else:
+            other_files.append(f)
+
+    # Check work_link for images or PDFs as well
+    if work_link and isinstance(work_link, str):
+        lower_wl = work_link.strip().lower().split('?')[0]
+        if lower_wl.endswith(img_extensions) and work_link not in images_to_show:
+            images_to_show.append(work_link)
+        elif lower_wl.endswith(pdf_extensions) and work_link not in pdfs_to_show:
+            pdfs_to_show.append(work_link)
+
+    # Render Images inline
+    if images_to_show:
+        st.markdown("#### 🖼️ Submitted Portfolio Images")
+        cols = st.columns(min(len(images_to_show), 3))
+        for idx, img_url in enumerate(images_to_show):
+            with cols[idx % 3]:
+                st.image(img_url, use_container_width=True, caption=f"Image #{idx+1}")
+                st.markdown(f"🔗 [View Full Size Image]({img_url})")
+        st.markdown("---")
+
+    # Render PDF Documents with view/download buttons
+    if pdfs_to_show:
+        st.markdown("#### 📄 Submitted PDF Documents")
+        for idx, pdf_url in enumerate(pdfs_to_show):
+            filename = pdf_url.split('/')[-1]
+            c1, c2 = st.columns([3, 1])
+            with c1:
+                st.markdown(f"📄 **File #{idx+1}:** `{filename}`")
+            with c2:
+                st.link_button(f"Open PDF #{idx+1}", pdf_url, use_container_width=True)
+        st.markdown("---")
+
+    # Render General Links & Other Files
+    if other_files:
+        st.markdown("#### 📁 Other Portfolio Files & Documents")
+        for idx, file_url in enumerate(other_files):
+            filename = file_url.split('/')[-1]
+            st.markdown(f"- 📄 **Document #{idx+1}:** [{filename}]({file_url})")
+        st.markdown("---")
+
 # Session State Initialization
 if "authenticated" not in st.session_state:
     st.session_state.authenticated = False
@@ -115,10 +178,11 @@ if st.session_state.current_view == "nav" or not st.session_state.active_submiss
             with st.container(border=True):
                 fav_icon = "⭐" if item.get("is_favorite", False) else "☆"
                 notes_cnt = len(item.get("notes_list", []))
+                files_cnt = len(item.get("files", []))
                 
                 st.markdown(f"### #{key}. {item['name']}")
                 st.write(f"{item['statement'][:100]}...")
-                st.caption(f"Status: {fav_icon} Favorite | 💬 {notes_cnt} Notes")
+                st.caption(f"Status: {fav_icon} Favorite | 💬 {notes_cnt} Notes | 📁 {files_cnt} Files")
                 
                 c1, c2 = st.columns([3, 1])
                 if c1.button("View Submission", key=f"nav_to_{key}", use_container_width=True):
@@ -154,3 +218,58 @@ else:
     col_title, col_fav = st.columns([4, 1])
     with col_title:
         st.title(f"Submission #{s_id}: {sub['name']}")
+        contact_info = []
+        if sub.get("email"):
+            contact_info.append(f"📧 {sub['email']}")
+        if sub.get("phone"):
+            contact_info.append(f"📞 {sub['phone']}")
+        if contact_info:
+            st.caption(" | ".join(contact_info))
+            
+    with col_fav:
+        is_fav = sub.get("is_favorite", False)
+        fav_label = "⭐ Favorited" if is_fav else "☆ Add to Favorites"
+        if st.button(fav_label, key="page_fav_btn", use_container_width=True):
+            submissions[s_id]["is_favorite"] = not is_fav
+            save_data(s_id, submissions[s_id])
+            st.rerun()
+
+    st.markdown("### Artist Statement")
+    st.info(sub["statement"])
+    
+    st.markdown("### Portfolio & Work Links")
+    work_link = sub.get("work_link", "")
+    if work_link:
+        st.markdown(f"**Primary Online Portfolio:** 🔗 [{work_link}]({work_link})")
+    
+    st.markdown("---")
+    
+    # Render all submission files (Images, PDFs, Documents)
+    render_submission_files(sub.get("files", []), work_link)
+    
+    # Real-time Shared Reviewer Notes
+    st.subheader("💬 Shared Reviewer Notes")
+    notes_list = sub.get("notes_list", [])
+    
+    if not notes_list:
+        st.write("_No reviewer notes added yet._")
+    else:
+        for n in notes_list:
+            st.warning(f"**{n['author']}** _({n['time']})_:\n\n{n['text']}")
+
+    st.markdown("#### Add a Reviewer Note")
+    with st.form(key=f"page_note_form_{s_id}"):
+        new_note = st.text_area("Your Feedback / Note:")
+        submitted = st.form_submit_button("Submit Note")
+        
+        if submitted and new_note.strip():
+            current_data = load_data()
+            entry = {
+                "author": st.session_state.user_name,
+                "time": datetime.now().strftime("%Y-%m-%d %H:%M"),
+                "text": new_note.strip()
+            }
+            current_data[s_id].setdefault("notes_list", []).append(entry)
+            save_data(s_id, current_data[s_id])
+            st.success("Note saved for all reviewers!")
+            st.rerun()
