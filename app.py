@@ -41,8 +41,8 @@ def save_data(s_id, data):
     with open(file_path, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=2, ensure_ascii=False)
 
-def render_submission_files(files, work_link):
-    """Display submission files visually (images, PDFs, links)."""
+def render_submission_gallery(files, work_link):
+    """Display submission files in a clean visual gallery grid."""
     if isinstance(files, str):
         files = [files]
     elif not isinstance(files, list):
@@ -66,7 +66,7 @@ def render_submission_files(files, work_link):
         else:
             other_files.append(f)
 
-    # Check work_link for images or PDFs as well
+    # Check primary work link for image format
     if work_link and isinstance(work_link, str):
         lower_wl = work_link.strip().lower().split('?')[0]
         if lower_wl.endswith(img_extensions) and work_link not in images_to_show:
@@ -74,34 +74,40 @@ def render_submission_files(files, work_link):
         elif lower_wl.endswith(pdf_extensions) and work_link not in pdfs_to_show:
             pdfs_to_show.append(work_link)
 
-    # Render Images inline
+    # Render Image Gallery
     if images_to_show:
-        st.markdown("#### 🖼️ Submitted Portfolio Images")
-        cols = st.columns(min(len(images_to_show), 3))
-        for idx, img_url in enumerate(images_to_show):
-            with cols[idx % 3]:
-                st.image(img_url, use_container_width=True, caption=f"Image #{idx+1}")
-                st.markdown(f"🔗 [View Full Size Image]({img_url})")
+        st.markdown(f"### 🖼️ Artwork & Portfolio Gallery ({len(images_to_show)} Images)")
+        cols_per_row = 3
+        for i in range(0, len(images_to_show), cols_per_row):
+            cols = st.columns(cols_per_row)
+            for j in range(cols_per_row):
+                idx = i + j
+                if idx < len(images_to_show):
+                    img_url = images_to_show[idx]
+                    with cols[j]:
+                        with st.container(border=True):
+                            st.image(img_url, use_container_width=True, caption=f"Artwork #{idx+1}")
+                            st.markdown(f"🔗 [View High-Res Image]({img_url})")
         st.markdown("---")
 
-    # Render PDF Documents with view/download buttons
+    # Render PDF Documents
     if pdfs_to_show:
-        st.markdown("#### 📄 Submitted PDF Documents")
+        st.markdown("### 📄 Submitted PDF Documents")
         for idx, pdf_url in enumerate(pdfs_to_show):
             filename = pdf_url.split('/')[-1]
             c1, c2 = st.columns([3, 1])
             with c1:
-                st.markdown(f"📄 **File #{idx+1}:** `{filename}`")
+                st.markdown(f"📄 **Portfolio Document #{idx+1}:** `{filename}`")
             with c2:
                 st.link_button(f"Open PDF #{idx+1}", pdf_url, use_container_width=True)
         st.markdown("---")
 
-    # Render General Links & Other Files
+    # Render Other Files
     if other_files:
-        st.markdown("#### 📁 Other Portfolio Files & Documents")
+        st.markdown("### 📁 Additional Documents & Links")
         for idx, file_url in enumerate(other_files):
             filename = file_url.split('/')[-1]
-            st.markdown(f"- 📄 **Document #{idx+1}:** [{filename}]({file_url})")
+            st.markdown(f"- 🔗 [{filename}]({file_url})")
         st.markdown("---")
 
 # Session State Initialization
@@ -244,8 +250,8 @@ else:
     
     st.markdown("---")
     
-    # Render all submission files (Images, PDFs, Documents)
-    render_submission_files(sub.get("files", []), work_link)
+    # Render all submission files & artwork gallery
+    render_submission_gallery(sub.get("files", []), work_link)
     
     # Real-time Shared Reviewer Notes
     st.subheader("💬 Shared Reviewer Notes")
