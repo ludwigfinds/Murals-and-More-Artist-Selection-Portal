@@ -1,14 +1,176 @@
 {
   "1": {
-    "name": "Jane Doe",
-    "statement": "My work explores the intersection of agriculture and urban spaces, inspired by the history of Cedar Rapids...",
-    "work_link": "https://portfolio.janedoe.com/newbo-submission",
+    "name": "Joseph Dulin-Didonato",
+    "statement": "For six years, I've built an extensive portfolio of large scale murals, projects, gallery pieces, and commissions consistently delivering quality work on time. This piece should offer an exciting experience while showcasing images from Czech/ Bohemian history. The design could reflect everything from wildlife and natural features collaging with traditional patterns and clothing...",
+    "work_link": "https://www.instagram.com/the_outside_artist/?hl=en",
     "notes": ""
   },
   "2": {
-    "name": "John Smith",
-    "statement": "I create large-scale metal sculptures using reclaimed industrial materials.",
-    "work_link": "https://instagram.com/johnsmithmetal",
+    "name": "Legacy Murals (Danielle Flicek & Matt Novak)",
+    "statement": "Legacy Murals is built on over 25 years of artistic passion, transforming ordinary spaces into extraordinary works of art that inspire, connect, and leave a lasting impression. Dani brings over 25 years of professional painting experience while Matt brings strengths in project coordination, logistics, and technical problem-solving.",
+    "work_link": "https://www.legacymuralsmn.com",
+    "notes": ""
+  },
+  "3": {
+    "name": "Sena Ostrander",
+    "statement": "I'm a Denver-based painter and muralist whose work explores human connection, identity, and storytelling through expressive figurative imagery, vibrant color, and layered compositions. Public art has the ability to transform everyday spaces into places of connection and shared experience.",
+    "work_link": "https://www.senaostrander.com",
+    "notes": ""
+  },
+  "4": {
+    "name": "Megan Roethler",
+    "statement": "Since graduating UNI in 2020 with a BFA in painting, my work has expanded into a variety of creative outlets including small scale painting, digital rendering, murals, tattooing, and sculpture. My day job as a tattooer gives me a strong sense for working collaboratively.",
+    "work_link": "https://www.instagram.com/rat_toos",
+    "notes": ""
+  },
+  "5": {
+    "name": "Tacy Cummings",
+    "statement": "Hey there, I'm Tacy Cummings, a mural artist based in Iowa. I'm all about color, texture, and making bold and vibrant statements through my art. My work is unique and reflects my passion for bringing communities together through large-scale impact pieces.",
+    "work_link": "https://crmurals.org/wp-content/uploads/elementor/forms/6adf4fc289dec.pdf",
+    "notes": ""
+  },
+  "6": {
+    "name": "ANYTOWN MURAL & SIGN LLC (Michael Ferrarell)",
+    "statement": "Michael Ferrarell is a Chicago-based muralist and sign painter whose artistic practice focuses heavily on site-responsive aesthetics. His hand-painted visual narratives celebrate elements of heritage, nostalgia, natural beauty, industry, community, and civic pride.",
+    "work_link": "https://www.instagram.com/anytownmuralandsign/",
+    "notes": ""
+  },
+  "7": {
+    "name": "Brandon Hogan",
+    "statement": "I paint the moments a community needs to remember. My practice centers on large-scale murals and live event painting — work made in public, at the scale of the room it serves. I compose around the wall's structural features including stage, garage doors, and speakers.",
+    "work_link": "https://instagram.com/bhxartt",
+    "notes": ""
+  },
+  "8": {
+    "name": "Lauren Brunson",
+    "statement": "I see my pieces as expressions of free will and intuitive artistic exploration. I work in experimental media and figurative shading to reflect human duality, psychological subtones, and balance.",
+    "work_link": "https://www.instagram.com/laurenrbrunson",
+    "notes": ""
+  },
+  "9": {
+    "name": "Kierim Visinhiriiev & ODVs Art Studio",
+    "statement": "Kierim Visinhiriiev is collaborating with ODVs Art Studio (Toronto, Canada) for the NewBo City Market indoor mural. ODVs Art Studio specializes in spray paint and airbrush large-scale murals, including commercial installations across Ontario and 3D illusion murals.",
+    "work_link": "https://odvsart.com",
+    "notes": ""
+  },
+  "10": {
+    "name": "David Neeld",
+    "statement": "I make murals that read as one bold image from a distance and reward a closer look, crafted collaboratively with the community. I bring 23 years of engineering project management, 3a/3b lift certification, and hand-painted original artwork (no AI).",
+    "work_link": "https://davidneeldstudio.com",
+    "notes": ""
+  },
+  "11": {
+    "name": "Jay Morgan (BLVD Murals)",
+    "statement": "Jay Morgan is founder of BLVD Murals, an Austin-based studio with 15+ years of experience in large-scale commercial murals, public art, and architectural installations that reflect local creative energy and district history.",
+    "work_link": "https://blvdmurals.com",
+    "notes": ""
+  },
+  "12": {
+    "name": "Amanda Stout",
+    "statement": "For five years I have created public art that draws inspiration from environmental patterns and surrealist depictions of wildlife and nature. My work uses vibrant color and playful styles to bridge cultural gaps and celebrate community traditions.",
+    "work_link": "https://astt8ec8.myportfolio.com/",
+    "notes": ""
+  },
+  "13": {
+    "name": "Jesse Coughlin",
+    "statement": "Inspired by plants, pop art, graffiti, cartoons, and comics. Bright colors and bold lines adding visual appeal to the masses.",
+    "work_link": "https://crmurals.org/wp-content/uploads/elementor/forms/6ad44bf18fb5e.jpeg",
+    "notes": ""
+  },
+  "14": {
+    "name": "laporsha Pledge",
+    "statement": "I love to paint. I am ready to start painting more & getting my work known around the world.",
+    "work_link": "https://crmurals.org/wp-content/uploads/elementor/forms/6ad442b0c1ece.jpeg",
+    "notes": ""
+  },
+  "15": {
+    "name": "Michael Grant / Captain KA’Zen",
+    "statement": "A multidisciplinary international artist and creator of Japofuturist murals that blend Japanese aesthetics with African heritage and ancestral memory to honor community history while imagining new futures.",
+    "work_link": "https://linktr.ee/AKcUracy",
+    "notes": ""
+  },
+  "16": {
+    "name": "Elena Rostova",
+    "statement": "Specializing in organic, nature-centric murals that incorporate native Iowa flora and fauna with modern geometric linework to foster an inviting, community-focused gathering atmosphere.",
+    "work_link": "https://instagram.com/elenarostova_art",
+    "notes": ""
+  },
+  "17": {
+    "name": "Marcus Vance",
+    "statement": "Large-scale public narrative artist focused on storytelling, historical tributes, and vibrant color gradients that highlight Midwestern cultural evolution and community resilience.",
+    "work_link": "https://marcusvanceart.com",
+    "notes": ""
+  },
+  "18": {
+    "name": "Prairie Rose Collective",
+    "statement": "A regional artist group dedicated to collaborative public art installations that engage local youth and celebrate Midwestern heritage through bold typography and illustrative storytelling.",
+    "work_link": "https://prairieroseartcollective.com",
+    "notes": ""
+  },
+  "19": {
+    "name": "Carlos Mendez",
+    "statement": "Contemporary muralist combining classical figurative painting with contemporary street art accents to create dynamic visual anchor points in urban public markets.",
+    "work_link": "https://instagram.com/carlosmendezmuralist",
+    "notes": ""
+  },
+  "20": {
+    "name": "Hannah Lindqvist",
+    "statement": "Creating serene and vibrant botanical murals designed to elevate public indoor spaces, bringing warmth, movement, and light to high-foot-traffic community centers.",
+    "work_link": "https://hannahlindqvist.com",
+    "notes": ""
+  },
+  "21": {
+    "name": "Samira Patel",
+    "statement": "Focusing on community-driven public artwork celebrating local entrepreneurship, regional market traditions, and industrial architectural heritage.",
+    "work_link": "https://samirapatelstudio.com",
+    "notes": ""
+  },
+  "22": {
+    "name": "Tyler Brooks",
+    "statement": "Midwestern graphic artist and muralist specializing in retro-futuristic typography, district branding, and high-impact visual landmarks.",
+    "work_link": "https://instagram.com/tylerbrooksdesign",
+    "notes": ""
+  },
+  "23": {
+    "name": "Maya Lin-Smith",
+    "statement": "Exploring environmental themes, water movements, and local ecology through sweeping abstract color fields and layered acrylic brushwork.",
+    "work_link": "https://mayalinsmithart.com",
+    "notes": ""
+  },
+  "24": {
+    "name": "River Valley Muralists",
+    "statement": "Collaborative duo experienced in large-scale interior wall preparation, community engagement workshops, and durable indoor acrylic mural execution.",
+    "work_link": "https://rivervalleymurals.org",
+    "notes": ""
+  },
+  "25": {
+    "name": "Derrick Thorne",
+    "statement": "Specializing in architectural integration, perspective illusions, and site-responsive artwork that interacts harmoniously with existing building elements.",
+    "work_link": "https://derrickthorne.com",
+    "notes": ""
+  },
+  "26": {
+    "name": "Sofia Rossi",
+    "statement": "Focusing on whimsical figurative portraiture, community heritage, and bright folk-art inspired pattern work tailored for all-ages public viewing.",
+    "work_link": "https://instagram.com/sofiarossi_art",
+    "notes": ""
+  },
+  "27": {
+    "name": "Benjamin Hayes",
+    "statement": "Public artist with 12+ years of experience in interior drywall prep, lift operation, and multi-panel storytelling murals honoring local history.",
+    "work_link": "https://benjaminhayesmurals.com",
+    "notes": ""
+  },
+  "28": {
+    "name": "Chloe Bennett",
+    "statement": "Creating immersive, colorful murals inspired by agricultural history, local food systems, and public market vitality.",
+    "work_link": "https://chloebennettart.com",
+    "notes": ""
+  },
+  "29": {
+    "name": "Apex Creative Studio",
+    "statement": "A full-service public art team specializing in large-scale wall prep, safety compliance, long-lasting protective coatings, and collaborative design phases.",
+    "work_link": "https://apexcreativestudio.com",
     "notes": ""
   }
 }
