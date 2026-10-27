@@ -6,7 +6,7 @@ from datetime import datetime
 
 # Page configuration
 st.set_page_config(
-    page_title="NewBo Mural Artist Submissions",
+    page_title="NewBo City Market Mural Artist Submissions",
     page_icon="🎨",
     layout="wide"
 )
@@ -124,7 +124,7 @@ if "filter_favorites" not in st.session_state:
 
 # 1. Password Protection Gate with Mandatory Reviewer Name
 if not st.session_state.authenticated:
-    st.title("🔒 NewBo Artist Selection Committee")
+    st.title("🔒 NewBo City Market Artist Selection Committee")
     st.subheader("Protected Access")
     
     name_input = st.text_input("Reviewer Name", value=st.session_state.user_name, placeholder="e.g. Jane Doe")
