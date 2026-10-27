@@ -1,6 +1,7 @@
 import streamlit as st
 import json
 import os
+import glob
 from datetime import datetime
 
 # Page configuration
@@ -10,129 +11,42 @@ st.set_page_config(
     layout="wide"
 )
 
-DATA_FILE = "submissions.json"
+SUBMISSIONS_DIR = "submissions"
 APP_PASSWORD = "NewBoMural2026"  # Set your app access password here
 
-# Initialize default submissions dataset if file doesn't exist
-DEFAULT_SUBMISSIONS = {
-    "1": {
-        "name": "Joseph Dulin-Didonato",
-        "statement": "For six years, I've built an extensive portfolio of large scale murals, projects, gallery pieces, and commissions consistently delivering quality work on time. This piece should offer an exciting experience while showcasing images from Czech/ Bohemian history.",
-        "work_link": "https://www.instagram.com/the_outside_artist/?hl=en",
-        "notes_list": [],
-        "is_favorite": False
-    },
-    "2": {
-        "name": "Legacy Murals (Danielle Flicek & Matt Novak)",
-        "statement": "Legacy Murals is built on over 25 years of artistic passion, transforming ordinary spaces into extraordinary works of art that inspire, connect, and leave a lasting impression.",
-        "work_link": "https://www.legacymuralsmn.com",
-        "notes_list": [],
-        "is_favorite": False
-    },
-    "3": {
-        "name": "Sena Ostrander",
-        "statement": "I'm a Denver-based painter and muralist whose work explores human connection, identity, and storytelling through expressive figurative imagery, vibrant color, and layered compositions.",
-        "work_link": "https://www.senaostrander.com",
-        "notes_list": [],
-        "is_favorite": False
-    },
-    "4": {
-        "name": "Megan Roethler",
-        "statement": "Since graduating UNI in 2020 with a BFA in painting, my work has expanded into a variety of creative outlets including small scale painting, digital rendering, murals, tattooing, and sculpture.",
-        "work_link": "https://www.instagram.com/rat_toos",
-        "notes_list": [],
-        "is_favorite": False
-    },
-    "5": {
-        "name": "Tacy Cummings",
-        "statement": "Hey there, I'm Tacy Cummings, a mural artist based in Iowa. I'm all about color, texture, and making bold and vibrant statements through my art.",
-        "work_link": "https://crmurals.org/wp-content/uploads/elementor/forms/6adf4fc289dec.pdf",
-        "notes_list": [],
-        "is_favorite": False
-    },
-    "6": {
-        "name": "ANYTOWN MURAL & SIGN LLC (Michael Ferrarell)",
-        "statement": "Michael Ferrarell is a Chicago-based muralist and sign painter whose artistic practice focuses heavily on site-responsive aesthetics.",
-        "work_link": "https://www.instagram.com/anytownmuralandsign/",
-        "notes_list": [],
-        "is_favorite": False
-    },
-    "7": {
-        "name": "Brandon Hogan",
-        "statement": "I paint the moments a community needs to remember. My practice centers on large-scale murals and live event painting — work made in public, at the scale of the room it serves.",
-        "work_link": "https://instagram.com/bhxartt",
-        "notes_list": [],
-        "is_favorite": False
-    },
-    "8": {
-        "name": "Lauren Brunson",
-        "statement": "I see my pieces as expressions of free will and intuitive artistic exploration. I work in experimental media and figurative shading to reflect human duality.",
-        "work_link": "https://www.instagram.com/laurenrbrunson",
-        "notes_list": [],
-        "is_favorite": False
-    },
-    "9": {
-        "name": "Kierim Visinhiriiev & ODVs Art Studio",
-        "statement": "Kierim Visinhiriiev is collaborating with ODVs Art Studio (Toronto, Canada) for the NewBo City Market indoor mural, specializing in spray paint and airbrush large-scale murals.",
-        "work_link": "https://odvsart.com",
-        "notes_list": [],
-        "is_favorite": False
-    },
-    "10": {
-        "name": "David Neeld",
-        "statement": "I make murals that read as one bold image from a distance and reward a closer look, crafted collaboratively with the community. I bring 23 years of engineering project management.",
-        "work_link": "https://davidneeldstudio.com",
-        "notes_list": [],
-        "is_favorite": False
-    },
-    "11": {
-        "name": "Jay Morgan (BLVD Murals)",
-        "statement": "Jay Morgan is founder of BLVD Murals, an Austin-based studio with 15+ years of experience in large-scale commercial murals, public art, and architectural installations.",
-        "work_link": "https://blvdmurals.com",
-        "notes_list": [],
-        "is_favorite": False
-    },
-    "12": {
-        "name": "Amanda Stout",
-        "statement": "For five years I have created public art that draws inspiration from environmental patterns and surrealist depictions of wildlife and nature.",
-        "work_link": "https://astt8ec8.myportfolio.com/",
-        "notes_list": [],
-        "is_favorite": False
-    }
-}
-
-# Fill remaining submissions up to 29 entries
-for i in range(13, 30):
-    idx_str = str(i)
-    if idx_str not in DEFAULT_SUBMISSIONS:
-        DEFAULT_SUBMISSIONS[idx_str] = {
-            "name": f"Artist Submission #{i}",
-            "statement": f"Portfolio entry and artist statement for submission #{i}.",
-            "work_link": f"https://portfolio.artist{i}.com",
-            "notes_list": [],
-            "is_favorite": False
-        }
-
 def load_data():
-    if os.path.exists(DATA_FILE):
+    """Load all JSON files from the submissions directory."""
+    submissions = {}
+    if not os.path.exists(SUBMISSIONS_DIR):
+        os.makedirs(SUBMISSIONS_DIR)
+        
+    # Read all .json files in the folder
+    file_paths = glob.glob(os.path.join(SUBMISSIONS_DIR, "*.json"))
+    for file_path in file_paths:
         try:
-            with open(DATA_FILE, "r", encoding="utf-8") as f:
-                return json.load(f)
-        except Exception:
-            return DEFAULT_SUBMISSIONS
-    else:
-        save_data(DEFAULT_SUBMISSIONS)
-        return DEFAULT_SUBMISSIONS
+            with open(file_path, "r", encoding="utf-8") as f:
+                data = json.load(f)
+                # Use the filename (without extension) as the key/ID if not specified
+                s_id = os.path.basename(file_path).replace(".json", "")
+                submissions[s_id] = data
+        except Exception as e:
+            st.error(f"Error loading {file_path}: {e}")
+            
+    return submissions
 
-def save_data(data):
-    with open(DATA_FILE, "w", encoding="utf-8") as f:
+def save_data(s_id, data):
+    """Save updates (like favorites or notes) back to the specific JSON file."""
+    if not os.path.exists(SUBMISSIONS_DIR):
+        os.makedirs(SUBMISSIONS_DIR)
+    file_path = os.path.join(SUBMISSIONS_DIR, f"{s_id}.json")
+    with open(file_path, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=2, ensure_ascii=False)
 
 # Session State Initialization
 if "authenticated" not in st.session_state:
     st.session_state.authenticated = False
 if "current_view" not in st.session_state:
-    st.session_state.current_view = "nav"  # Options: 'nav' or 'detail'
+    st.session_state.current_view = "nav"
 if "active_submission_id" not in st.session_state:
     st.session_state.active_submission_id = None
 if "user_name" not in st.session_state:
@@ -172,13 +86,16 @@ if st.sidebar.button("🔒 Log Out"):
 
 # 2. Page Navigation Handling
 if st.session_state.current_view == "nav" or not st.session_state.active_submission_id:
-    # ------------------ NAVIGATION PAGE ------------------
     st.title("NewBo City Market - Artist Submissions")
-    st.caption("Select any submission tile below to view its dedicated page, links, and shared notes.")
+    st.caption(f"Showing entries automatically loaded from the `{SUBMISSIONS_DIR}/` directory.")
 
     # Filter submissions
     filtered_keys = []
-    for k, v in submissions.items():
+    # Sort keys to display sequentially if they are numbered
+    sorted_keys = sorted(submissions.keys(), key=lambda x: int(x) if x.isdigit() else x)
+    
+    for k in sorted_keys:
+        v = submissions[k]
         if st.session_state.filter_favorites:
             if v.get("is_favorite", False):
                 filtered_keys.append(k)
@@ -208,11 +125,11 @@ if st.session_state.current_view == "nav" or not st.session_state.active_submiss
                     
                 if c2.button(fav_icon, key=f"fav_tile_{key}", use_container_width=True):
                     submissions[key]["is_favorite"] = not submissions[key].get("is_favorite", False)
-                    save_data(submissions)
+                    save_data(key, submissions[key])
                     st.rerun()
 
 else:
-    # ------------------ INDIVIDUAL SUBMISSION PAGE ------------------
+    # INDIVIDUAL SUBMISSION PAGE
     s_id = st.session_state.active_submission_id
     sub = submissions.get(s_id)
     
@@ -224,7 +141,6 @@ else:
             st.rerun()
         st.stop()
 
-    # Back button
     if st.button("⬅ Back to Submissions List"):
         st.session_state.current_view = "nav"
         st.session_state.active_submission_id = None
@@ -232,28 +148,31 @@ else:
 
     st.markdown("---")
     
-    # Header & Favorite Toggle
     col_title, col_fav = st.columns([4, 1])
     with col_title:
         st.title(f"Submission #{s_id}: {sub['name']}")
+        if "email" in sub or "phone" in sub:
+            st.caption(f"📧 {sub.get('email', 'N/A')} | 📞 {sub.get('phone', 'N/A')}")
     with col_fav:
         is_fav = sub.get("is_favorite", False)
         fav_label = "⭐ Favorited" if is_fav else "☆ Add to Favorites"
         if st.button(fav_label, key="page_fav_btn", use_container_width=True):
             submissions[s_id]["is_favorite"] = not is_fav
-            save_data(submissions)
+            save_data(s_id, submissions[s_id])
             st.rerun()
 
-    # Submission Details
     st.markdown("### Artist Statement")
     st.info(sub["statement"])
     
-    st.markdown("### Portfolio & Work Link")
-    st.markdown(f"🔗 [{sub['work_link']}]({sub['work_link']})")
+    st.markdown("### Portfolio & Work Links")
+    st.markdown(f"**Primary Link:** 🔗 [{sub['work_link']}]({sub['work_link']})")
+    
+    if "files" in sub and sub["files"]:
+        st.markdown("**Additional Submitted Files:**")
+        for f in sub["files"]:
+            st.markdown(f"- 📄 [{f}]({f})")
     
     st.markdown("---")
-    
-    # Real-time Shared Notes
     st.subheader("💬 Shared Reviewer Notes")
     notes_list = sub.get("notes_list", [])
     
@@ -263,14 +182,12 @@ else:
         for n in notes_list:
             st.warning(f"**{n['author']}** _({n['time']})_:\n\n{n['text']}")
 
-    # Form to add a new note
     st.markdown("#### Add a Reviewer Note")
     with st.form(key=f"page_note_form_{s_id}"):
         new_note = st.text_area("Your Feedback / Note:")
         submitted = st.form_submit_button("Submit Note")
         
         if submitted and new_note.strip():
-            # Reload fresh data to keep multi-user sync
             current_data = load_data()
             entry = {
                 "author": st.session_state.user_name,
@@ -278,6 +195,6 @@ else:
                 "text": new_note.strip()
             }
             current_data[s_id].setdefault("notes_list", []).append(entry)
-            save_data(current_data)
+            save_data(s_id, current_data[s_id])
             st.success("Note saved for all reviewers!")
             st.rerun()
