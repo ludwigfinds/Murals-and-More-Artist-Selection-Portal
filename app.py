@@ -16,113 +16,92 @@ DATA_FILE = "submissions.json"
 DEFAULT_SUBMISSIONS = {
     "1": {
         "name": "Joseph Dulin-Didonato",
-        "statement": "For six years, I've built an extensive portfolio of large scale murals, projects, gallery pieces, and commissions consistently delivering quality work on time. This piece should offer an exciting experience while showcasing images from Czech/ Bohemian history. The design could reflect everything from wildlife and natural features collaging with traditional patterns and clothing...",
+        "statement": "For six years, I've built an extensive portfolio of large scale murals, projects, gallery pieces, and commissions consistently delivering quality work on time. This piece should offer an exciting experience while showcasing images from Czech/ Bohemian history.",
         "work_link": "https://www.instagram.com/the_outside_artist/?hl=en",
         "notes_list": [],
         "is_favorite": False
     },
     "2": {
         "name": "Legacy Murals (Danielle Flicek & Matt Novak)",
-        "statement": "Legacy Murals is built on over 25 years of artistic passion, transforming ordinary spaces into extraordinary works of art that inspire, connect, and leave a lasting impression. Dani brings over 25 years of professional painting experience while Matt brings strengths in project coordination, logistics, and technical problem-solving.",
+        "statement": "Legacy Murals is built on over 25 years of artistic passion, transforming ordinary spaces into extraordinary works of art that inspire, connect, and leave a lasting impression.",
         "work_link": "https://www.legacymuralsmn.com",
         "notes_list": [],
         "is_favorite": False
     },
     "3": {
         "name": "Sena Ostrander",
-        "statement": "I'm a Denver-based painter and muralist whose work explores human connection, identity, and storytelling through expressive figurative imagery, vibrant color, and layered compositions. Public art has the ability to transform everyday spaces into places of connection and shared experience.",
+        "statement": "I'm a Denver-based painter and muralist whose work explores human connection, identity, and storytelling through expressive figurative imagery, vibrant color, and layered compositions.",
         "work_link": "https://www.senaostrander.com",
         "notes_list": [],
         "is_favorite": False
     },
     "4": {
         "name": "Megan Roethler",
-        "statement": "Since graduating UNI in 2020 with a BFA in painting, my work has expanded into a variety of creative outlets including small scale painting, digital rendering, murals, tattooing, and sculpture. My day job as a tattooer gives me a strong sense for working collaboratively.",
+        "statement": "Since graduating UNI in 2020 with a BFA in painting, my work has expanded into a variety of creative outlets including small scale painting, digital rendering, murals, tattooing, and sculpture.",
         "work_link": "https://www.instagram.com/rat_toos",
         "notes_list": [],
         "is_favorite": False
     },
     "5": {
         "name": "Tacy Cummings",
-        "statement": "Hey there, I'm Tacy Cummings, a mural artist based in Iowa. I'm all about color, texture, and making bold and vibrant statements through my art. My work is unique and reflects my passion for bringing communities together through large-scale impact pieces.",
+        "statement": "Hey there, I'm Tacy Cummings, a mural artist based in Iowa. I'm all about color, texture, and making bold and vibrant statements through my art.",
         "work_link": "https://crmurals.org/wp-content/uploads/elementor/forms/6adf4fc289dec.pdf",
         "notes_list": [],
         "is_favorite": False
     },
     "6": {
         "name": "ANYTOWN MURAL & SIGN LLC (Michael Ferrarell)",
-        "statement": "Michael Ferrarell is a Chicago-based muralist and sign painter whose artistic practice focuses heavily on site-responsive aesthetics. His hand-painted visual narratives celebrate elements of heritage, nostalgia, natural beauty, industry, community, and civic pride.",
+        "statement": "Michael Ferrarell is a Chicago-based muralist and sign painter whose artistic practice focuses heavily on site-responsive aesthetics.",
         "work_link": "https://www.instagram.com/anytownmuralandsign/",
         "notes_list": [],
         "is_favorite": False
     },
     "7": {
         "name": "Brandon Hogan",
-        "statement": "I paint the moments a community needs to remember. My practice centers on large-scale murals and live event painting — work made in public, at the scale of the room it serves. I compose around the wall's structural features including stage, garage doors, and speakers.",
+        "statement": "I paint the moments a community needs to remember. My practice centers on large-scale murals and live event painting — work made in public, at the scale of the room it serves.",
         "work_link": "https://instagram.com/bhxartt",
         "notes_list": [],
         "is_favorite": False
     },
     "8": {
         "name": "Lauren Brunson",
-        "statement": "I see my pieces as expressions of free will and intuitive artistic exploration. I work in experimental media and figurative shading to reflect human duality, psychological subtones, and balance.",
+        "statement": "I see my pieces as expressions of free will and intuitive artistic exploration. I work in experimental media and figurative shading to reflect human duality.",
         "work_link": "https://www.instagram.com/laurenrbrunson",
         "notes_list": [],
         "is_favorite": False
     },
     "9": {
         "name": "Kierim Visinhiriiev & ODVs Art Studio",
-        "statement": "Kierim Visinhiriiev is collaborating with ODVs Art Studio (Toronto, Canada) for the NewBo City Market indoor mural. ODVs Art Studio specializes in spray paint and airbrush large-scale murals, including commercial installations across Ontario and 3D illusion murals.",
+        "statement": "Kierim Visinhiriiev is collaborating with ODVs Art Studio (Toronto, Canada) for the NewBo City Market indoor mural, specializing in spray paint and airbrush large-scale murals.",
         "work_link": "https://odvsart.com",
         "notes_list": [],
         "is_favorite": False
     },
     "10": {
         "name": "David Neeld",
-        "statement": "I make murals that read as one bold image from a distance and reward a closer look, crafted collaboratively with the community. I bring 23 years of engineering project management, 3a/3b lift certification, and hand-painted original artwork (no AI).",
+        "statement": "I make murals that read as one bold image from a distance and reward a closer look, crafted collaboratively with the community. I bring 23 years of engineering project management.",
         "work_link": "https://davidneeldstudio.com",
         "notes_list": [],
         "is_favorite": False
     },
     "11": {
         "name": "Jay Morgan (BLVD Murals)",
-        "statement": "Jay Morgan is founder of BLVD Murals, an Austin-based studio with 15+ years of experience in large-scale commercial murals, public art, and architectural installations that reflect local creative energy and district history.",
+        "statement": "Jay Morgan is founder of BLVD Murals, an Austin-based studio with 15+ years of experience in large-scale commercial murals, public art, and architectural installations.",
         "work_link": "https://blvdmurals.com",
         "notes_list": [],
         "is_favorite": False
     },
     "12": {
         "name": "Amanda Stout",
-        "statement": "For five years I have created public art that draws inspiration from environmental patterns and surrealist depictions of wildlife and nature. My work uses vibrant color and playful styles to bridge cultural gaps and celebrate community traditions.",
+        "statement": "For five years I have created public art that draws inspiration from environmental patterns and surrealist depictions of wildlife and nature.",
         "work_link": "https://astt8ec8.myportfolio.com/",
-        "notes_list": [],
-        "is_favorite": False
-    },
-    "13": {
-        "name": "Jesse Coughlin",
-        "statement": "Inspired from plants, pop art, graffiti, cartoons, and comics. Bright colors and bold lines adding visual appeal to the masses.",
-        "work_link": "https://crmurals.org/wp-content/uploads/elementor/forms/6ad44bf18fb5e.jpeg",
-        "notes_list": [],
-        "is_favorite": False
-    },
-    "14": {
-        "name": "laporsha Pledge",
-        "statement": "I love to paint. I am ready to start painting more & getting my work known around the world.",
-        "work_link": "https://crmurals.org/wp-content/uploads/elementor/forms/6ad442b0c1ece.jpeg",
-        "notes_list": [],
-        "is_favorite": False
-    },
-    "15": {
-        "name": "Michael Grant / Captain KA’Zen",
-        "statement": "A multidisciplinary international artist and creator of Japofuturist murals that blend Japanese aesthetics with African heritage and ancestral memory to honor community history while imagining new futures.",
-        "work_link": "https://linktr.ee/AKcUracy",
         "notes_list": [],
         "is_favorite": False
     }
 }
 
-# Add entries up to 29 if missing
-for i in range(16, 30):
+# Fill remaining submissions up to 29 entries
+for i in range(13, 30):
     idx_str = str(i)
     if idx_str not in DEFAULT_SUBMISSIONS:
         DEFAULT_SUBMISSIONS[idx_str] = {
@@ -150,33 +129,106 @@ def save_data(data):
 
 submissions = load_data()
 
-# Custom CSS styling for tile grid, overlays, and static 'X' button
-st.markdown("""
-<style>
-    /* Fixed overlay backdrop */
-    .modal-backdrop {
-        position: fixed;
-        top: 0; left: 0; width: 100vw; height: 100vh;
-        background-color: rgba(0, 0, 0, 0.65);
-        z-index: 9998;
-    }
-    /* Fixed overlay content container */
-    .modal-box {
-        position: fixed;
-        top: 5vh; left: 10vw; width: 80vw; height: 90vh;
-        background-color: #ffffff;
-        color: #1a1a1a;
-        padding: 2rem;
-        border-radius: 12px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-        z-index: 9999;
-        overflow-y: auto;
-    }
-    /* Sticky Top-Right Static 'X' Close Button */
-    .close-btn-container {
-        position: absolute;
-        top: 15px;
-        right: 20px;
-        z-index: 10000;
-    }
-    /* Tile layout
+# Session State
+if "selected_submission_id" not in st.session_state:
+    st.session_state.selected_submission_id = None
+if "user_name" not in st.session_state:
+    st.session_state.user_name = "Reviewer"
+if "filter_favorites" not in st.session_state:
+    st.session_state.filter_favorites = False
+
+# Sidebar Reviewer Controls
+st.sidebar.title("🎨 Reviewer Panel")
+st.session_state.user_name = st.sidebar.text_input("Reviewer Name / Initials", value=st.session_state.user_name)
+st.sidebar.markdown("---")
+st.session_state.filter_favorites = st.sidebar.checkbox("⭐ Show Favorites Only", value=st.session_state.filter_favorites)
+
+st.title("NewBo City Market - Artist Submissions")
+st.caption("Browse all 29 submissions below. Click any tile to open full details, links, and reviewer notes.")
+
+# Filter submissions
+filtered_keys = []
+for k, v in submissions.items():
+    if st.session_state.filter_favorites:
+        if v.get("is_favorite", False):
+            filtered_keys.append(k)
+    else:
+        filtered_keys.append(k)
+
+# Tile Grid Display
+cols = st.columns(3)
+for idx, key in enumerate(filtered_keys):
+    item = submissions[key]
+    col = cols[idx % 3]
+    
+    with col:
+        with st.container(border=True):
+            fav_icon = "⭐" if item.get("is_favorite", False) else "☆"
+            notes_cnt = len(item.get("notes_list", []))
+            
+            st.markdown(f"### #{key}. {item['name']}")
+            st.write(f"{item['statement'][:100]}...")
+            st.caption(f"Status: {fav_icon} Favorite | 💬 {notes_cnt} Notes")
+            
+            c1, c2 = st.columns([3, 1])
+            if c1.button("Open Details", key=f"open_{key}", use_container_width=True):
+                st.session_state.selected_submission_id = key
+                st.rerun()
+                
+            if c2.button(fav_icon, key=f"fav_{key}", use_container_width=True):
+                submissions[key]["is_favorite"] = not submissions[key].get("is_favorite", False)
+                save_data(submissions)
+                st.rerun()
+
+# Modal / Dialog Popup using Streamlit Dialogs
+if hasattr(st, "dialog"):
+    @st.dialog("Submission Details", width="large")
+    def show_submission_modal(s_id):
+        sub = submissions[s_id]
+        
+        col_title, col_fav = st.columns([4, 1])
+        with col_title:
+            st.subheader(f"#{s_id}. {sub['name']}")
+        with col_fav:
+            is_fav = sub.get("is_favorite", False)
+            btn_label = "⭐ Favorited" if is_fav else "☆ Favorite"
+            if st.button(btn_label, key="modal_fav_btn"):
+                submissions[s_id]["is_favorite"] = not is_fav
+                save_data(submissions)
+                st.rerun()
+                
+        st.markdown("**Artist Statement:**")
+        st.info(sub["statement"])
+        
+        st.markdown("**Portfolio Link:**")
+        st.markdown(f"🔗 [{sub['work_link']}]({sub['work_link']})")
+        
+        st.markdown("---")
+        st.subheader("💬 Shared Reviewer Notes")
+        
+        notes_list = sub.get("notes_list", [])
+        if not notes_list:
+            st.write("_No reviewer notes added yet._")
+        else:
+            for n in notes_list:
+                st.markdown(f"**{n['author']}** _({n['time']})_:")
+                st.warning(n['text'])
+                
+        st.markdown("#### Add a Note")
+        with st.form(key=f"dialog_note_form_{s_id}"):
+            new_note = st.text_area("Your feedback / note:")
+            submitted = st.form_submit_button("Save Note")
+            if submitted and new_note.strip():
+                current_data = load_data()
+                entry = {
+                    "author": st.session_state.user_name,
+                    "time": datetime.now().strftime("%Y-%m-%d %H:%M"),
+                    "text": new_note.strip()
+                }
+                current_data[s_id].setdefault("notes_list", []).append(entry)
+                save_data(current_data)
+                st.success("Note saved for all reviewers!")
+                st.rerun()
+
+    if st.session_state.selected_submission_id:
+        show_submission
